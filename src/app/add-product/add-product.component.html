@@ -5,11 +5,21 @@
 
 <form [formGroup]="productForm" style="text-align:center">
     <input type="text" formControlName="title" placeholder="Product Name*" required>
+    
+    <!-- <div *ngIf="title.dirty && title.touched && title.errors?.required">
+        Username is required.
+      </div> -->
 
+      
+      
     <input type="text" formControlName="category" placeholder="Category*" required>
     <input type="text" formControlName="price" placeholder="Price*" required>
 
     <button (click)="addProduct()" [disabled]="!productForm.valid">Add</button>
+
+    <p *ngIf="(title?.dirty || title?.touched) && title?.errors?.required" style="color: red;"> Title is required</p>
+    <p *ngIf="(category?.dirty || category?.touched ) && category?.errors?.required" style="color: red;"> Category is required</p>
+    <p *ngIf="(price?.dirty || price?.touched) && price?.errors?.required" style="color: red;"> Price is required</p>
 
     <p *ngIf="ifAdded" style="color:green;">Product added</p>
 </form>
