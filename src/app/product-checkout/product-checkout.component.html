@@ -1,0 +1,18 @@
+<div style="text-align:center">
+    <h1>Normal User Page</h1>
+    <h2>Product List - ( {{products.length}}) | <button type="button" (click)="logout()">Logout</button></h2>
+</div>
+
+
+
+<div style="float:right">
+    <button type="button" class="checkout" (click)="checkoutProduct()">Checkouts - ({{counter}})</button>
+    <p *ngIf="out" style="color: blue">Checkout succesfully</p>
+</div>
+<div class="card" *ngFor = "let product of products">
+  <img src="{{product.thumbnail}}" alt="{{product.title}" style="width:100%">
+  <h1>{{product.title}}</h1>
+  <p class="price">Rs. {{product.price}}</p>
+  <p>{{product.description}}</p>
+  <p><button (click)="addToCart(product.id)">Add to Cart</button></p>
+</div>

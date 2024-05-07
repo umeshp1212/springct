@@ -1,0 +1,15 @@
+<div style="text-align:center">
+    <h1>Add Product <span> <button (click)="backProductPage()">Back to Product Page</button></span></h1>  
+</div>
+
+
+<form [formGroup]="productForm" style="text-align:center">
+    <input type="text" formControlName="title" placeholder="Product Name*" required>
+
+    <input type="text" formControlName="category" placeholder="Category*" required>
+    <input type="text" formControlName="price" placeholder="Price*" required>
+
+    <button (click)="addProduct()" [disabled]="!productForm.valid">Add</button>
+
+    <p *ngIf="ifAdded" style="color:green;">Product added</p>
+</form>

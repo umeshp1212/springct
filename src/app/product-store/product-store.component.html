@@ -1,0 +1,35 @@
+<div style="text-align:center">
+    <h1>Admin Page</h1>
+    <h2 style="text-align:center">Product List | <button type="button" (click)="logout()">Logout</button> </h2>
+<p style="color: red;" *ngIf="deleted">Product Deleted </p>
+</div>
+
+
+<div style="float:right">
+    <button type="button" class="checkout" (click)="addProduct()">Add Product</button>
+    <!-- <p *ngIf="out" style="color: blue">Checkout succesfully</p> -->
+</div>
+<table style="width: 100%;">
+    <tr>
+        <!-- <th>Sr</th> -->
+        <th>Title</th>
+        <th>Category</th>
+        <th>Action</th>
+        <!-- <th>Message</th> -->
+    </tr>
+    <tr *ngFor="let product of products;">
+        <!-- <td>{{i}}</td> -->
+        <td>{{product.title}}</td>
+        <td>{{product.category}}</td>
+        <td>
+            <button style="background-color: red;padding: 10px;" (click)="delete(product.id)">Delete</button>
+        </td>
+        
+    </tr>
+
+</table>
+<!-- <img src="{{product.thumbnail}}" alt="{{product.title}" style="width:100%">
+  <h1>{{product.title}}</h1>
+  <p class="price">Rs. {{product.price}}</p>
+  <p>{{product.description}}</p>
+  <p><button (click)="addToCart(product.id)">Add to Cart</button></p> -->
